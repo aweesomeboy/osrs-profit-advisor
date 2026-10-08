@@ -1,29 +1,43 @@
 #!/bin/bash
 
-echo "OSRS Profit Advisor - Launcher"
-echo "============================="
-echo ""
+# OSRS Profit Advisor - Startup Script
+
+set -e
 
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$PROJECT_DIR"
+VENV_DIR="$PROJECT_DIR/venv"
 
-if [ ! -f ".venv/bin/activate" ]; then
-    echo "[!] Virtual environment not found. Running setup..."
-    bash quick-setup.sh
-    echo ""
+echo "=========================================="
+echo "OSRS Profit Advisor"
+echo "=========================================="
+
+# Check if virtual environment exists
+if [ ! -d "$VENV_DIR" ]; then
+    echo "Creating virtual environment..."
+    python3 -m venv "$VENV_DIR"
 fi
 
 echo "Activating virtual environment..."
-source .venv/bin/activate
+source "$VENV_DIR/bin/activate"
 
-echo "Verifying PySide6..."
-if ! python3 -c "from PySide6.QtWidgets import QApplication" 2>/dev/null; then
-    echo "[!] PySide6 not found. Reinstalling..."
-    pip install --upgrade PySide6
-fi
+echo "Installing dependencies..."
+pip install -q --upgrade pip
+pip install -q -r "$PROJECT_DIR/requirements.txt"
 
 echo ""
-echo "Starting OSRS Profit Advisor..."
+echo "=========================================="
+echo "Starting OSRS Profit Advisor"
+echo "=========================================="
+echo ""
+echo "✓ Backend will start in a moment..."
+echo "✓ Application will be available at:"
+echo ""
+echo "    http://127.0.0.1:8000"
+echo ""
+echo "Press Ctrl+C to stop"
+echo ""
+echo "=========================================="
 echo ""
 
-python run.py
+cd "$PROJECT_DIR"
+python3 -m uvicorn app:app --host 127.0.0.1 --port 8000 --reload
