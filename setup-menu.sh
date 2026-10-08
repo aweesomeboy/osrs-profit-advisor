@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-echo "OSRS Profit Advisor - Comprehensive Setup & Build"
-echo "=================================================="
+echo "OSRS Profit Advisor - Interactive Setup"
+echo "========================================="
 echo ""
 
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -15,58 +15,54 @@ show_menu() {
     echo "  1) Setup for running locally (recommended for first time)"
     echo "  2) Run the application"
     echo "  3) Run tests"
-    echo "  4) Build AppImage (.AppImage file)"
-    echo "  5) Build .deb package (Debian/Ubuntu)"
-    echo "  6) Install system-wide (/opt)"
-    echo "  7) Setup development environment"
-    echo "  8) Exit"
+    echo "  4) Fix corrupted setup"
+    echo "  5) Build AppImage (.AppImage file)"
+    echo "  6) Build .deb package (Debian/Ubuntu)"
+    echo "  7) Exit"
     echo ""
-    read -p "Select an option (1-8): " choice
+    read -p "Select an option (1-7): " choice
+
 case $choice in
     1)
         echo ""
-        bash setup.sh
+        bash quick-setup.sh
+        show_menu
         ;;
     2)
         echo ""
-        if [ ! -d ".venv" ]; then
-            echo "Virtual environment not found. Running setup.sh first..."
-            bash setup.sh
-        fi
-        source .venv/bin/activate
-        python run.py
+        bash run.sh
         ;;
     3)
         echo ""
         if [ ! -d ".venv" ]; then
-            echo "Virtual environment not found. Running setup.sh first..."
-            bash setup.sh
+            echo "Virtual environment not found. Running setup first..."
+            bash quick-setup.sh
         fi
         source .venv/bin/activate
         pytest -v
+        show_menu
         ;;
     4)
         echo ""
-        bash build_appimage.sh
+        bash fix-setup.sh
+        show_menu
         ;;
     5)
         echo ""
-        bash build_deb.sh
+        bash build_appimage.sh
+        show_menu
         ;;
     6)
         echo ""
-        bash install.sh
+        bash build_deb.sh
+        show_menu
         ;;
     7)
-        echo ""
-        bash dev-setup.sh
-        ;;
-    8)
         echo "Exiting."
         exit 0
         ;;
     *)
-        echo "Invalid option. Please select 1-8."
+        echo "Invalid option. Please select 1-7."
         show_menu
         ;;
     esac
