@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=OSRS Profit Advisor
+Comment=Grand Exchange price tracker and profit calculator for Old School RuneScape
+Exec=OSRSProfitAdvisor
+Icon=osrs-profit-advisor
+Categories=Utility;Finance;
+Terminal=false
+StartupNotify=true
