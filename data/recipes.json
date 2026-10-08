@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Cooked Karambwan",
+    "inputs": [
+      {"item_id": 3142, "quantity": 1},
+      {"item_id": 3150, "quantity": 1}
+    ],
+    "output_item_id": 3144,
+    "output_quantity": 1,
+    "craft_time_seconds": 60,
+    "required_skill": "Cooking",
+    "required_level": 30,
+    "failure_chance": 0,
+    "extra_costs": 0,
+    "notes": "Example of a basic cooking recipe"
+  },
+  {
+    "name": "Cooked Fish",
+    "inputs": [
+      {"item_id": 331, "quantity": 1}
+    ],
+    "output_item_id": 333,
+    "output_quantity": 1,
+    "craft_time_seconds": 30,
+    "required_skill": "Cooking",
+    "required_level": 1,
+    "failure_chance": 0,
+    "extra_costs": 0,
+    "notes": "Fast-turnover recipe"
+  }
+]
