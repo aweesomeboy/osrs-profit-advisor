@@ -1,0 +1,9 @@
+# .gitignore
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+*.db
+*.sqlite3
+.idea/
+.vscode/

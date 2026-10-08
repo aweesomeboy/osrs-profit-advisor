@@ -1,0 +1,10 @@
+database:
+  path: "data/osrs_profit_advisor.db"
+  sync_interval_minutes: 5
+api:
+  user_agent: "OSRSProfitAdvisor/1.0 contact: moj-email@example.com"
+  timeout_seconds: 15
+  max_retries: 3
+ui:
+  window_title: "OSRS Profit Advisor"
+  refresh_interval_ms: 300000
