@@ -16,7 +16,7 @@ class MainWindow(QMainWindow):
         title.setStyleSheet("font-size: 22px; font-weight: 600;")
         layout.addWidget(title)
 
-        status = QLabel("Phase 1: application scaffold and calculation layer initialized.")
+        status = QLabel("Phase 2: live API integration and data synchronization layer initialized.")
         status.setWordWrap(True)
         layout.addWidget(status)
 

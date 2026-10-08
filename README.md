@@ -2,27 +2,26 @@
 
 A Linux desktop application for tracking Old School RuneScape Grand Exchange prices, recipe profitability, and price forecasting.
 
-This repository is being built incrementally. The first step establishes the project skeleton and the core calculation layer.
+This repository is being built incrementally. The current milestone adds the live API client and the SQLite synchronization layer.
 
-## Project status
-
-Current phase: Foundation and calculation layer
+## Current status
 
 Completed:
 - Project structure and package layout
 - SQLite schema for core data tables
 - Core GE tax and profit calculations
 - Minimal PySide6 application shell
-- Test suite for key edge cases
+- Initial unit tests for calculations and edge cases
+- Live OSRS Wiki API client
+- Local synchronization service for latest prices and time-series data
 
 ## Planned next steps
 
-1. Add live OSRS Wiki API integration
-2. Implement stale price handling and local caching
-3. Build the item search and dashboard views
-4. Add recipe CRUD and scanning logic
-5. Add historical charts and forecasting
-6. Package for Linux distribution
+1. Build the item search and dashboard views
+2. Add recipe CRUD, import/export, and filtering
+3. Implement historical charts and simple forecasting
+4. Package the app for Linux
+5. Finalize documentation and release prep
 
 ## Run locally
 

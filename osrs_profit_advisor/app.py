@@ -1,3 +1,3 @@
-from osrs_profit_advisor.ui import MainWindow
+from osrs_profit_advisor.ui.main_window import main
 
-__all__ = ["MainWindow"]
+__all__ = ["main"]
