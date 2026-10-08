@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "osrs-profit-advisor"
+version = "0.1.0"
+description = "OSRS Grand Exchange price tracker, flip finder and recipe profit calculator"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "aweesomeboy", email = "31595947+aweesomeboy@users.noreply.github.com"}
+]
+
+dependencies = [
+    "PySide6>=6.6.0",
+    "requests>=2.31.0",
+    "PyYAML>=6.0.1",
+    "pytest>=7.4.0",
+]
+
+[project.scripts]
+osrs-profit-advisor = "osrs_profit_advisor.app:main"
+
+[project.urls]
+Repository = "https://github.com/aweesomeboy/osrs-profit-advisor"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+packages = ["osrs_profit_advisor", "osrs_profit_advisor.ui", "osrs_profit_advisor.services"]
+
+[tool.setuptools.package-data]
+osrs_profit_advisor = [
+    "assets/*",
+    "config/*",
+]
